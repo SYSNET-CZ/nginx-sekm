@@ -18,7 +18,9 @@ Jednoduchý kontejner, který spouští reverzní proxy NGINX, která zpřístup
 Lze použít oficiální obraz _NGINX_, což je pravděpodobně nejjednodušší způsob nasazení: 
 
 ```
-docker run --name nginx-sekm -p 80:80 -p 443:443 \
+docker run --name nginx-sekm \
+    -p 80:80 -p 443:443 \
+    --restart unless-stopped \
     -v $HOME/nginx-sekm/logs:/var/log/nginx \
     -v $HOME/nginx-sekm/html:/usr/share/nginx/html:ro \
     -v $HOME/nginx-sekm/conf/nginx.conf:/etc/nginx/nginx.conf \
