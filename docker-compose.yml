@@ -1,0 +1,21 @@
+# docker-compose build
+# docker-compose up -d web
+version: '2.1'
+volumes:
+  nginx-conf:
+  nginx-html:
+
+services:
+
+  nginx:
+    image: sysnetcz/nginx:latest
+    volumes:
+      - nginx-conf:/etc/nginx/nginx.conf
+      - nginx-data:/usr/share/nginx/html
+    environment:
+      - NGINX_HOST=docker.sysnet.nagano
+    ports:
+      - 80:80
+    restart: on-failure
+    healthcheck:
+      test: "exit 0"
