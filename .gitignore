@@ -1,6 +1,4 @@
 .idea
 *.*~
-*/replication/pg-*
-*/replication/docker-compose.override.yml
-*/logs/*
+/logs/
 .DS_Store
