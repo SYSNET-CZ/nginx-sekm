@@ -2,4 +2,5 @@
 *.*~
 */replication/pg-*
 */replication/docker-compose.override.yml
+*/logs/*
 .DS_Store

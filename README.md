@@ -13,6 +13,21 @@ Jednoduchý kontejner, který spouští reverzní proxy NGINX, která zpřístup
 7. `/portainer` je směrována na kontejner na portu `8090`
 
 
+## Oficiální obraz
+
+Lze použít oficiální obraz _NGINX_, což je pravděpodobně nejjednodušší způsob nasazení: 
+
+```
+docker run --name nginx-sekm -p 80:80 -p 443:443 \
+    -v $HOME/nginx-sekm/logs:/var/log/nginx \
+    -v $HOME/nginx-sekm/html:/usr/share/nginx/html:ro \
+    -v $HOME/nginx-sekm/conf/nginx.conf:/etc/nginx/nginx.conf \
+    -v $HOME/nginx-sekm/conf/sites:/etc/nginx/sites \
+    -v $HOME/nginx-sekm/conf/ssl:/etc/nginx/ssl \
+    -d nginx
+```
+
+
 ## Jak získat obraz
 
 Je více způsobů, jak získaz obraz do Vašeho systému. Preferovaným způsobem je prosté stažení
